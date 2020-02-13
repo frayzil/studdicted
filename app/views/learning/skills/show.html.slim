@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Body:
+  = @learning_skill.body
+p
+  strong Description:
+  = @learning_skill.description
+
+=> link_to 'Edit', edit_learning_skill_path(@learning_skill)
+'|
+=< link_to 'Back', learning_skills_path

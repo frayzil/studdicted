@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :learning do
+    resources :skills
+  end
   namespace :knowledge do
     resources :concepts
   end
