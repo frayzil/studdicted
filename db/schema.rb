@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_020607) do
+ActiveRecord::Schema.define(version: 2020_02_13_020718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,4 +29,15 @@ ActiveRecord::Schema.define(version: 2020_02_13_020607) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "learning_skills_knowledge_concepts", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "knowledge_concept_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["knowledge_concept_id"], name: "index_l_skills_k_concepts_on_k_concept_id"
+    t.index ["skill_id"], name: "index_learning_skills_knowledge_concepts_on_skill_id"
+  end
+
+  add_foreign_key "learning_skills_knowledge_concepts", "knowledge_concepts"
+  add_foreign_key "learning_skills_knowledge_concepts", "learning_skills", column: "skill_id"
 end
