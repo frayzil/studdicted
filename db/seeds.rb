@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Knowledge::Concept.destroy_all
+
+knowledge_concepts = Knowledge::Concept.create!([
+  { title: "rational numbers" },
+  { title: "irrational numbers" },
+  { title: "integers" },
+  { title: "natural numbers" },
+  { title: "whole numbers" },
+  { title: "division" },
+  { title: "HCF" },
+  { title: "prime numbers" },
+  { title: "composite numbers" },
+  { title: "prime factorization" },
+  { title: "factorization" },
+  { title: "LCM" },
+  { title: "exponents" },
+  { title: "fundamental theorem of arithmetic" },
+  { title: "proof by contradiction" },
+  { title: "decimal place value system" },
+  { title: "fractions" }
+])

@@ -1,0 +1,2 @@
+module Knowledge::ConceptsHelper
+end

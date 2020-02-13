@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @knowledge_concept.title
+p
+  strong Description:
+  = @knowledge_concept.description
+
+=> link_to 'Edit', edit_knowledge_concept_path(@knowledge_concept)
+'|
+=< link_to 'Back', knowledge_concepts_path
