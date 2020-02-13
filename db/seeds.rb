@@ -19,3 +19,30 @@ knowledge_concepts = Knowledge::Concept.create!([
   { title: "decimal place value system" },
   { title: "fractions" }
 ])
+
+Learning::SkillsKnowledgeConcept.destroy_all
+Learning::Skill.destroy_all
+
+skill_concepts_data = [
+  { skill: "identify rational and irrational numbers as real numbers",
+    concepts: ["rational numbers", "irrational numbers"] },
+
+  { skill: "locate different real numbers on the number line",
+    concepts: ["rational numbers", "irrational numbers", "integers", "natural numbers", "whole numbers"] },
+
+  { skill: "find the kind of a decimal form a given number has, by examining its denominator",
+    concepts: ["decimal place value system", "exponents", "integers", "fractions"] },
+
+  { skill: "convert the given rational numbers into their decimal forms",
+    concepts: ["decimal place value system", "exponents", "integers", "fractions"] },
+
+  { skill: "convert the given decimal numbers to their rational form",
+    concepts: ["decimal place value system", "exponents", "integers", "fractions"] }
+]
+
+skill_concepts_data.each do |data|
+  skill = Learning::Skill.create!(body: data[:skill])
+  data[:concepts].each do |concept|
+    skill.knowledge_concepts << Knowledge::Concept.find_by_title(concept)
+  end
+end
