@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :curriculum do
+    resources :boards
+  end
   namespace :learning do
     resources :skills
   end

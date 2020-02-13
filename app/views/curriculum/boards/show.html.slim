@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @curriculum_board.name
+
+=> link_to 'Edit', edit_curriculum_board_path(@curriculum_board)
+'|
+=< link_to 'Back', curriculum_boards_path

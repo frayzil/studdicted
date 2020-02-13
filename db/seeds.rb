@@ -46,3 +46,13 @@ skill_concepts_data.each do |data|
     skill.knowledge_concepts << Knowledge::Concept.find_by_title(concept)
   end
 end
+
+Curriculum::Board.destroy_all
+
+curriculum_boards_data = [
+  { name: 'CBSE' },
+  { name: 'ICSE' },
+  { name: 'IGCSE' }
+]
+
+Curriculum::Board.create!(curriculum_boards_data)
