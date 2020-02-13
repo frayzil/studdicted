@@ -52,3 +52,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # View
 gem 'simple_form'
 gem 'slim-rails'
+
+# Model
+## Curriculum::Topic
+gem 'ancestry' 
