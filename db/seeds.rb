@@ -47,6 +47,7 @@ skill_concepts_data.each do |data|
   end
 end
 
+Curriculum::Topic.destroy_all
 Curriculum::Board.destroy_all
 
 curriculum_boards_data = [
@@ -55,4 +56,14 @@ curriculum_boards_data = [
   { name: 'IGCSE' }
 ]
 
-Curriculum::Board.create!(curriculum_boards_data)
+cbse, icse, igcse = Curriculum::Board.create!(curriculum_boards_data)
+
+science, english, maths = Curriculum::Topics::Subject.create!([
+  { title: 'Science' },
+  { title: 'English' },
+  { title: 'Mathematics' }
+])
+
+science.build_board_subject(board: cbse).save!
+english.build_board_subject(board: cbse).save!
+maths.build_board_subject(board: icse).save!

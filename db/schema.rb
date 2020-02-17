@@ -10,16 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_220455) do
+ActiveRecord::Schema.define(version: 2020_02_17_234035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "curriculum_board_subjects", force: :cascade do |t|
+    t.bigint "board_id", null: false
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_curriculum_board_subjects_on_board_id"
+    t.index ["subject_id"], name: "index_curriculum_board_subjects_on_subject_id"
+  end
 
   create_table "curriculum_boards", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
+# Could not dump table "curriculum_topics" because of following StandardError
+#   Unknown type 'curriculum_topic_ancestry_level' for column 'ancestry_level'
 
   create_table "knowledge_concepts", force: :cascade do |t|
     t.string "title"
@@ -44,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_02_13_220455) do
     t.index ["skill_id"], name: "index_learning_skills_knowledge_concepts_on_skill_id"
   end
 
+  add_foreign_key "curriculum_board_subjects", "curriculum_boards", column: "board_id"
+  add_foreign_key "curriculum_board_subjects", "curriculum_topics", column: "subject_id"
   add_foreign_key "learning_skills_knowledge_concepts", "knowledge_concepts"
   add_foreign_key "learning_skills_knowledge_concepts", "learning_skills", column: "skill_id"
 end

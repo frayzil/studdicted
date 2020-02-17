@@ -1,0 +1,27 @@
+h1 Listing curriculum_topics
+
+table
+  thead
+    tr
+      th Title
+      th Type
+      th Description
+      th Board
+      th
+      th
+      th
+
+  tbody
+    - @curriculum_topics.each do |curriculum_topic|
+      tr
+        td = curriculum_topic.title
+        td = curriculum_topic.type
+        td = curriculum_topic.description
+        td = curriculum_topic.board
+        td = link_to 'Show', curriculum_topic
+        td = link_to 'Edit', edit_curriculum_topic_path(curriculum_topic)
+        td = link_to 'Destroy', curriculum_topic, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Topic', new_curriculum_topic_path
