@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_234035) do
+ActiveRecord::Schema.define(version: 2020_02_18_001113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2020_02_17_234035) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "curriculum_sub_topics_learning_skills", force: :cascade do |t|
+    t.bigint "sub_topic_id", null: false
+    t.bigint "learning_skill_id", null: false
+    t.integer "grade"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["learning_skill_id"], name: "index_c_sub_topics_l_skills_on_l_skill_id"
+    t.index ["sub_topic_id"], name: "index_curriculum_sub_topics_learning_skills_on_sub_topic_id"
   end
 
 # Could not dump table "curriculum_topics" because of following StandardError
@@ -58,6 +68,8 @@ ActiveRecord::Schema.define(version: 2020_02_17_234035) do
 
   add_foreign_key "curriculum_board_subjects", "curriculum_boards", column: "board_id"
   add_foreign_key "curriculum_board_subjects", "curriculum_topics", column: "subject_id"
+  add_foreign_key "curriculum_sub_topics_learning_skills", "curriculum_topics", column: "sub_topic_id"
+  add_foreign_key "curriculum_sub_topics_learning_skills", "learning_skills"
   add_foreign_key "learning_skills_knowledge_concepts", "knowledge_concepts"
   add_foreign_key "learning_skills_knowledge_concepts", "learning_skills", column: "skill_id"
 end
