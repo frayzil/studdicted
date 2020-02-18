@@ -4,4 +4,8 @@ class Knowledge::Concept < ApplicationRecord
                           join_table: :learning_skills_knowledge_concepts,
                           foreign_key: :knowledge_concept_id,
                           association_foreign_key: :skill_id
+
+  has_many :curriculum_sub_topics,
+           through: :learning_skills,
+           class_name: '::Curriculum::Topic'
 end

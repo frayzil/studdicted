@@ -66,4 +66,17 @@ class Curriculum::Topic < ApplicationRecord
     descendants.where ancestry_level: AncestryLevels::SUB_TOPIC
   end
   #################
+
+
+  #################
+  def learning_skills
+    sub_topics.collect(&:learning_skills).flatten
+  end
+  #################
+
+  #################
+  def knowledge_concepts
+    learning_skills.collect(&:knowledge_concepts).flatten
+  end
+  #################
 end
