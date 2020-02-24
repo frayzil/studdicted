@@ -30,7 +30,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 CREATE TYPE public.curriculum_topic_ancestry_level AS ENUM (
     'subject',
     'branch',
-    'topic',
+    'chapter',
     'section'
 );
 
