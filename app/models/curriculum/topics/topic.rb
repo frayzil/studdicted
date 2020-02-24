@@ -1,7 +1,7 @@
 module Curriculum
   module Topics
     class Topic < ::Curriculum::Topic
-      delegate :board, to: :topic_chunk
+      delegate :board, to: :branch
     end
   end
 end

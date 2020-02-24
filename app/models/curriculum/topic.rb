@@ -18,11 +18,11 @@ class Curriculum::Topic < ApplicationRecord
   # For Ancestry
   module AncestryLevels
     SUBJECT = 'subject'.freeze
-    TOPIC_CHUNK = 'topic_chunk'.freeze
+    BRANCH = 'branch'.freeze
     TOPIC = 'topic'.freeze
     SECTION = 'section'.freeze
 
-    ALL = [TOPIC_CHUNK, TOPIC, SECTION]
+    ALL = [BRANCH, TOPIC, SECTION]
   end
 
   # enum ancestry_level: AncestryLevels::ALL.to_h { |t| [t, t] }, _suffix: true
@@ -37,12 +37,12 @@ class Curriculum::Topic < ApplicationRecord
   ################
 
   ################
-  def topic_chunk
-    ancestors.find_by ancestry_level: AncestryLevels::TOPIC_CHUNK
+  def branch
+    ancestors.find_by ancestry_level: AncestryLevels::BRANCH
   end
 
-  def topic_chunks
-    descendants.where ancestry_level: AncestryLevels::TOPIC_CHUNK
+  def branches
+    descendants.where ancestry_level: AncestryLevels::BRANCH
   end
   #################
 

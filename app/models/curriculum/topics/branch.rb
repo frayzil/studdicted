@@ -1,6 +1,6 @@
 module Curriculum
   module Topics
-    class TopicChunk < ::Curriculum::Topic
+    class Branch < ::Curriculum::Topic
       delegate :board, to: :subject
 
     end
