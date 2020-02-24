@@ -34,5 +34,6 @@ module Studdicted
 
     config.eager_load_paths << config.root.join('lib')
 
+    config.active_record.schema_format = :sql
   end
 end
