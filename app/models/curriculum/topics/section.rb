@@ -5,11 +5,11 @@ module Curriculum
     class Section < ::Curriculum::Topic
       delegate :board, to: :topic
 
-      has_and_belongs_to_many :learning_skills,
-                              class_name: 'Learning::Skill',
-                              join_table: :curriculum_sections_learning_skills,
-                              foreign_key: :section_id,
-                              association_foreign_key: :learning_skill_id
+      has_many :sections_learning_skills,
+               dependent: :destroy
+
+      has_many :learning_skills,
+               through: :sections_learning_skills
     end
   end
 end

@@ -1,4 +1,7 @@
 Knowledge::Concept.destroy_all
+Learning::Skill.destroy_all
+Curriculum::Topic.destroy_all
+Curriculum::Board.destroy_all
 
 knowledge_concepts = Knowledge::Concept.create!([
   { title: "rational numbers" },
@@ -19,9 +22,6 @@ knowledge_concepts = Knowledge::Concept.create!([
   { title: "decimal place value system" },
   { title: "fractions" }
 ])
-
-Learning::SkillsKnowledgeConcept.destroy_all
-Learning::Skill.destroy_all
 
 skill_concepts_data = [
   { skill: "identify rational and irrational numbers as real numbers",
@@ -47,9 +47,6 @@ skill_concepts_data.each do |data|
   end
 end
 
-Curriculum::Topic.destroy_all
-Curriculum::Board.destroy_all
-
 curriculum_boards_data = [
   { name: 'CBSE' },
   { name: 'ICSE' },
@@ -64,6 +61,19 @@ science, english, maths = Curriculum::Topics::Subject.create!([
   { title: 'Mathematics' }
 ])
 
-science.build_board_subject(board: cbse).save!
-english.build_board_subject(board: cbse).save!
-maths.build_board_subject(board: icse).save!
+cbse.subjects << science
+cbse.subjects << english
+icse.subjects << maths
+
+physics   = science.branches.create(title: 'Physics')
+chemistry = science.branches.create(title: 'Chemistry')
+biology   = science.branches.create(title: 'Biology')
+
+algebra   = maths.branches.create(title: 'Algebra')
+geometry  = maths.branches.create(title: 'Geometry')
+
+light     = physics.chapters.create(title: 'Introduction to Light')
+sound     = physics.chapters.create(title: 'Introduction to Sound')
+
+light.sections.create(title: 'Reflection of light')
+light.sections.create(title: 'Refraction of light')
