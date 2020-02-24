@@ -19,10 +19,10 @@ class Curriculum::Topic < ApplicationRecord
   module AncestryLevels
     SUBJECT = 'subject'.freeze
     BRANCH = 'branch'.freeze
-    TOPIC = 'topic'.freeze
+    CHAPTER = 'chapter'.freeze
     SECTION = 'section'.freeze
 
-    ALL = [BRANCH, TOPIC, SECTION]
+    ALL = [BRANCH, CHAPTER, SECTION]
   end
 
   # enum ancestry_level: AncestryLevels::ALL.to_h { |t| [t, t] }, _suffix: true
@@ -48,12 +48,12 @@ class Curriculum::Topic < ApplicationRecord
 
 
   #################
-  def topic
-    ancestors.find_by ancestry_level: AncestryLevels::TOPIC
+  def chapter
+    ancestors.find_by ancestry_level: AncestryLevels::CHAPTER
   end
 
-  def topics
-    descendants.where ancestry_level: AncestryLevels::TOPIC
+  def chapters
+    descendants.where ancestry_level: AncestryLevels::CHAPTER
   end
   #################
 

@@ -1,6 +1,6 @@
 module Curriculum
   module Topics
-    class Topic < ::Curriculum::Topic
+    class Chapter < ::Curriculum::Topic
       delegate :board, to: :branch
     end
   end
