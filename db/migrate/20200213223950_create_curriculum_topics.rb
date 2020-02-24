@@ -2,7 +2,7 @@ class CreateCurriculumTopics < ActiveRecord::Migration[6.0]
   def up
     execute <<-SQL
       CREATE TYPE curriculum_topic_ancestry_level AS ENUM (
-        'subject', 'topic_chunk', 'topic', 'sub_topic'
+        'subject', 'topic_chunk', 'topic', 'section'
       );
     SQL
 

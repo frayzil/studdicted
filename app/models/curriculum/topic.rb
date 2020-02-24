@@ -20,9 +20,9 @@ class Curriculum::Topic < ApplicationRecord
     SUBJECT = 'subject'.freeze
     TOPIC_CHUNK = 'topic_chunk'.freeze
     TOPIC = 'topic'.freeze
-    SUB_TOPIC = 'sub_topic'.freeze
+    SECTION = 'section'.freeze
 
-    ALL = [TOPIC_CHUNK, TOPIC, SUB_TOPIC]
+    ALL = [TOPIC_CHUNK, TOPIC, SECTION]
   end
 
   # enum ancestry_level: AncestryLevels::ALL.to_h { |t| [t, t] }, _suffix: true
@@ -58,19 +58,19 @@ class Curriculum::Topic < ApplicationRecord
   #################
 
   #################
-  def sub_topic
-    ancestors.find_by ancestry_level: AncestryLevels::SUB_TOPIC
+  def section
+    ancestors.find_by ancestry_level: AncestryLevels::SECTION
   end
 
-  def sub_topics
-    descendants.where ancestry_level: AncestryLevels::SUB_TOPIC
+  def sections
+    descendants.where ancestry_level: AncestryLevels::SECTION
   end
   #################
 
 
   #################
   def learning_skills
-    sub_topics.collect(&:learning_skills).flatten
+    sections.collect(&:learning_skills).flatten
   end
   #################
 

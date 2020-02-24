@@ -5,7 +5,7 @@ class Knowledge::Concept < ApplicationRecord
                           foreign_key: :knowledge_concept_id,
                           association_foreign_key: :skill_id
 
-  has_many :curriculum_sub_topics,
+  has_many :curriculum_sections,
            through: :learning_skills,
            class_name: '::Curriculum::Topic'
 end
