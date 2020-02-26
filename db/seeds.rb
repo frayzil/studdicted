@@ -75,5 +75,8 @@ geometry  = maths.branches.create(title: 'Geometry')
 light     = physics.chapters.create(title: 'Introduction to Light')
 sound     = physics.chapters.create(title: 'Introduction to Sound')
 
-light.sections.create(title: 'Reflection of light')
-light.sections.create(title: 'Refraction of light')
+reflection = light.sections.create(title: 'Reflection of light')
+refraction = light.sections.create(title: 'Refraction of light')
+
+skill1 = reflection.learning_skills.create(body: 'State that the angles of incidence and reflection are equal')
+skill2 = reflection.learning_skills.create(body: 'State that reflection occurs on a polished surface')
