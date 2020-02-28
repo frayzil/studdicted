@@ -3,7 +3,10 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :skill_body, autofocus: true
+    = f.input :skill_body, autofocus: true, input_html: { list: :skill_bodies }
+
+  datalist#skill_bodies
+    = options_for_select(Learning::Skill.all.pluck(:body))
 
   .form-actions
     = f.button :submit
