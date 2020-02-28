@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: 'knowledge/concepts#index'
+
   namespace :curriculum do
     resources :topics
     resources :boards
