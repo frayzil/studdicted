@@ -6,12 +6,18 @@ Rails.application.routes.draw do
     resources :topics
     resources :boards
   end
+
   namespace :learning do
     resources :skills
-    resources :skills_knowledge_concpets
+    resources :skills_knowledge_concepts
   end
-  namespace :knowledge do
-    resources :concepts
+
+  namespace :knowledge, shallow: true do
+    resources :concepts do
+      resources :skills, controller: :concepts_learning_skills
+    end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # For details on the DSL available within this file,
+  # see https://guides.rubyonrails.org/routing.html
 end
