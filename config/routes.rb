@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   namespace :curriculum do
     resources :topics
-  end
-  namespace :curriculum do
     resources :boards
   end
   namespace :learning do
     resources :skills
+    resources :skills_knowledge_concpets
   end
   namespace :knowledge do
     resources :concepts
