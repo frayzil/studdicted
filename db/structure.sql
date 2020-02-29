@@ -457,6 +457,13 @@ CREATE INDEX index_learning_skills_knowledge_concepts_on_skill_id ON public.lear
 
 
 --
+-- Name: index_learning_skills_on_body; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_learning_skills_on_body ON public.learning_skills USING btree (body);
+
+
+--
 -- Name: curriculum_board_subjects fk_rails_08e786c7af; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
