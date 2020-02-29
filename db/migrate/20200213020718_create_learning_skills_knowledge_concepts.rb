@@ -9,5 +9,10 @@ class CreateLearningSkillsKnowledgeConcepts < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    add_index :learning_skills_knowledge_concepts,
+              [:skill_id, :knowledge_concept_id],
+              unique: true,
+              name: :index_l_skills_k_concepts_on_skill_id_and_k_concept_id
   end
 end

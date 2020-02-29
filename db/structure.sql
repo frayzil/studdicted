@@ -450,6 +450,13 @@ CREATE INDEX index_l_skills_k_concepts_on_k_concept_id ON public.learning_skills
 
 
 --
+-- Name: index_l_skills_k_concepts_on_skill_id_and_k_concept_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_l_skills_k_concepts_on_skill_id_and_k_concept_id ON public.learning_skills_knowledge_concepts USING btree (skill_id, knowledge_concept_id);
+
+
+--
 -- Name: index_learning_skills_knowledge_concepts_on_skill_id; Type: INDEX; Schema: public; Owner: -
 --
 
