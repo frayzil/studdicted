@@ -7,8 +7,10 @@ Rails.application.routes.draw do
     resources :boards
   end
 
-  namespace :learning do
-    resources :skills
+  namespace :learning, shallow: true do
+    resources :skills do
+      resources :knowledge_concepts, controller: :skills_knowledge_concepts
+    end
     resources :skills_knowledge_concepts
   end
 
