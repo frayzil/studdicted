@@ -8,8 +8,7 @@ class Learning::SkillsKnowledgeConcept < ApplicationRecord
   end
 
   def skill_body=(new_body)
-    self.skill = Learning::Skill.create_or_find_by!(
-      body: new_body
-    )
+    self.skill = Learning::Skill.create_or_find_by(body: new_body)
+  end
   end
 end
