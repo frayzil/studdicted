@@ -16,6 +16,7 @@ module Learning
         CLASSIFY = 'classify'
         DRAW = 'draw'
         WRITE = 'write'
+        LOCATE = 'locate'
 
         include AllConstantsAsAll
       end
