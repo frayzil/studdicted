@@ -5,6 +5,11 @@ class Learning::SkillsKnowledgeConcept < ApplicationRecord
 
   validate :skill_body_should_be_valid
 
+  validates :skill,             uniqueness: { scope: :knowledge_concept }
+  validates :knowledge_concept, uniqueness: { scope: :skill }
+
+  validate :skill_knowledge_concept_mapping_should_be_unique
+
   def skill_body
     skill&.body
   end
@@ -17,5 +22,10 @@ class Learning::SkillsKnowledgeConcept < ApplicationRecord
 
   def skill_body_should_be_valid
     skill.errors[:body].each { |e| errors[:skill_body] << e }
+  end
+
+  def skill_knowledge_concept_mapping_should_be_unique
+    errors[:skill].each             { |e| errors[:skill_body] << e }
+    errors[:knowledge_concept].each { |e| errors[:concept_title] << e }
   end
 end
