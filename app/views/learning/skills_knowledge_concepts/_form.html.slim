@@ -6,7 +6,7 @@
     = f.input :knowledge_concept_title, autofocus: true, input_html: { list: :knowledge_concept_titles, autocomplete: 'off' }
 
   datalist#knowledge_concept_titles
-    = options_for_select((Knowledge::Concept.all - @skill.knowledge_concepts).pluck(:body))
+    = options_for_select((Knowledge::Concept.all - @skill.knowledge_concepts).pluck(:title))
 
   .form-actions
     = f.button :submit

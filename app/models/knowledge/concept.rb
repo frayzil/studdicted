@@ -11,4 +11,7 @@ class Knowledge::Concept < ApplicationRecord
 
   has_many :curriculum_sections,
            through: :learning_skills
+
+  validates_uniqueness_of :title
+
 end

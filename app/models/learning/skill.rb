@@ -16,5 +16,6 @@ class Learning::Skill < ApplicationRecord
            through: :curriculum_sections_learning_skills,
            source: :section, class_name: 'Curriculum::Topics::Section'
 
+  validates_uniqueness_of :body
   validates_with Learning::Skills::BodyValidator
 end
