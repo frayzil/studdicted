@@ -1,0 +1,12 @@
+= simple_form_for([@skill, @skills_knowledge_concept], url: :learning_skill_knowledge_concepts) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :knowledge_concept_title, autofocus: true, input_html: { list: :knowledge_concept_titles, autocomplete: 'off' }
+
+  datalist#knowledge_concept_titles
+    = options_for_select((Knowledge::Concept.all - @skill.knowledge_concepts).pluck(:body))
+
+  .form-actions
+    = f.button :submit

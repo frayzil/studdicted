@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     resources :skills do
       resources :knowledge_concepts, controller: :skills_knowledge_concepts
     end
-    resources :skills_knowledge_concepts
+
+    resources :skills_knowledge_concepts, only: :destroy
   end
 
   namespace :knowledge, shallow: true do

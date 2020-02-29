@@ -18,6 +18,14 @@ class Learning::SkillsKnowledgeConcept < ApplicationRecord
     self.skill = Learning::Skill.create_or_find_by(body: new_body)
   end
 
+  def knowledge_concept_title
+    knowledge_concept&.title
+  end
+
+  def knowledge_concept_title=(new_title)
+    self.knowledge_concept = Knowledge::Concept.create_or_find_by(title: new_title)
+  end
+
   private
 
   def skill_body_should_be_valid
