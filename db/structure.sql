@@ -443,6 +443,13 @@ CREATE INDEX index_curriculum_topics_on_ancestry ON public.curriculum_topics USI
 
 
 --
+-- Name: index_knowledge_concepts_on_title; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_knowledge_concepts_on_title ON public.knowledge_concepts USING btree (title);
+
+
+--
 -- Name: index_l_skills_k_concepts_on_k_concept_id; Type: INDEX; Schema: public; Owner: -
 --
 
