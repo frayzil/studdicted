@@ -8,12 +8,15 @@ table
       th
       th
       th
+      th
 
   tbody
     - @knowledge_concepts.each do |knowledge_concept|
       tr
         td = knowledge_concept.title
         td = knowledge_concept.description
+        td = link_to "#{knowledge_concept.concepts_learning_skills.count} learning skills",
+                     knowledge_concept_skills_path(knowledge_concept)
         td = link_to 'Show', knowledge_concept
         td = link_to 'Edit', edit_knowledge_concept_path(knowledge_concept)
         td = link_to 'Destroy', knowledge_concept, data: { confirm: 'Are you sure?' }, method: :delete
