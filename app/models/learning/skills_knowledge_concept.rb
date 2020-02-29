@@ -4,7 +4,7 @@ class Learning::SkillsKnowledgeConcept < ApplicationRecord
   belongs_to :knowledge_concept, class_name: 'Knowledge::Concept'
 
   def skill_body
-    skill&.body || 'new skill'
+    skill&.body
   end
 
   def skill_body=(new_body)
