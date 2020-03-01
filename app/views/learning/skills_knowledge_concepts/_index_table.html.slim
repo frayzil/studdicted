@@ -6,12 +6,15 @@ table
       th
       th
       th
+      th
 
   tbody
     - skills_knowledge_concepts.each do |skills_knowledge_concept|
       tr
         td = skills_knowledge_concept.knowledge_concept.title
         td = skills_knowledge_concept.knowledge_concept.description
+        td = link_to "#{skills_knowledge_concept.knowledge_concept.concepts_learning_skills.count} learning skills",
+                     knowledge_concept_skills_path(skills_knowledge_concept.knowledge_concept)
         td = link_to 'Show', skills_knowledge_concept.knowledge_concept
         td = link_to 'Edit', edit_knowledge_concept_path(skills_knowledge_concept.knowledge_concept)
         td = link_to "Remove from #{skill.body}",
