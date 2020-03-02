@@ -4,12 +4,12 @@ module Curriculum
   class Branch < ::Curriculum::Topic
     delegate :board, to: :subject
 
-    def children_ancestroy_level
-      AncestryLevel::CHAPTER
+    def children_ancestry_level
+      AncestryLevels::CHAPTER
     end
 
     def chapters
-      children.where ancestry_level: children_ancestroy_level
+      children.where ancestry_level: children_ancestry_level
     end
   end
 end

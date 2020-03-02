@@ -6,12 +6,12 @@ module Curriculum
             dependent: :destroy
     has_one :board, through: :board_subject
 
-    def children_ancestroy_level
+    def children_ancestry_level
       AncestryLevels::BRANCH
     end
 
     def branches
-      children.where ancestry_level: children_ancestroy_level
+      children.where ancestry_level: children_ancestry_level
     end
   end
 end

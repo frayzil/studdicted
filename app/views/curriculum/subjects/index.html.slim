@@ -19,8 +19,8 @@ table
         td = curriculum_subject.ancestry_level
         td = curriculum_subject.description
         td = curriculum_subject.board.name
-        td = link_to "#{curriculum_subject.send(curriculum_subject.children_ancestroy_level.pluralize).count} #{curriculum_subject.children_ancestroy_level.pluralize}",
-                     send("curriculum_#{curriculum_subject.ancestry_level}_#{curriculum_subject.children_ancestroy_level.pluralize}_path", curriculum_subject)
+        td = link_to "#{curriculum_subject.send(curriculum_subject.children_ancestry_level.pluralize).count} #{curriculum_subject.children_ancestry_level.pluralize}",
+                     send("curriculum_#{curriculum_subject.ancestry_level}_#{curriculum_subject.children_ancestry_level.pluralize}_path", curriculum_subject)
         td = link_to 'Show', curriculum_subject_path(curriculum_subject)
         td = link_to 'Edit', edit_curriculum_subject_path(curriculum_subject)
         td = link_to 'Destroy', curriculum_subject_path(curriculum_subject), data: { confirm: 'Are you sure?' }, method: :delete
