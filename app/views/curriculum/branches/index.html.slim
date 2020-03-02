@@ -1,0 +1,30 @@
+h1 Listing curriculum branches of #{@subject.title}
+
+table
+  thead
+    tr
+      th Title
+      th Ancestry Level
+      th Description
+      th Board
+      th
+      th
+      th
+      th
+
+  tbody
+    - @branches.each do |branch|
+      tr
+        td = branch.title
+        td = branch.ancestry_level
+        td = branch.description
+        td = branch.subject.title
+        td = link_to "#{branch.send(branch.children_ancestry_level.pluralize).count} #{branch.children_ancestry_level.pluralize}",
+                     send("curriculum_#{branch.ancestry_level}_#{branch.children_ancestry_level.pluralize}_path", branch)
+        td = link_to 'Show', curriculum_branch_path(branch)
+        td = link_to 'Edit', edit_curriculum_branch_path(branch)
+        td = link_to 'Destroy', curriculum_branch_path(branch), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'Add a branch', new_curriculum_subject_branch_path(subject_id: @subject.id)

@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @curriculum_topic.title
+p
+  strong Type:
+  = @curriculum_topic.type
+p
+  strong Description:
+  = @curriculum_topic.description
+p
+  strong Board:
+  = @curriculum_topic.board
+
+=> link_to 'Edit', edit_curriculum_topic_path(@curriculum_topic)
+'|
+=< link_to 'Back', curriculum_topics_path
