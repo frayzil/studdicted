@@ -3,7 +3,10 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
+    
     = f.input :learning_skill_body, autofocus: true, input_html: { list: :learning_skill_bodies, autocomplete: 'off' }
+
+    = f.input :grade
 
   datalist#learning_skill_bodies
     = options_for_select((Learning::Skill.all - @section.learning_skills).pluck(:body))
