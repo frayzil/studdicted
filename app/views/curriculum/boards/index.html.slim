@@ -7,13 +7,15 @@ table
       th
       th
       th
+      th
 
   tbody
     - @curriculum_boards.each do |curriculum_board|
       tr
         td = curriculum_board.name
+        td = link_to "#{curriculum_board.subjects.count} subjects", curriculum_board_subjects_path(curriculum_board)
         td = link_to 'Show', curriculum_board
-        td = link_to 'Edit', edit_curriculum_board_path(curriculum_board)
+        td = link_to 'Edit', edit_curriculum_subject_path(curriculum_board)
         td = link_to 'Destroy', curriculum_board, data: { confirm: 'Are you sure?' }, method: :delete
 
 br

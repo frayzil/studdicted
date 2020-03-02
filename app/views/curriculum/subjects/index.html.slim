@@ -1,0 +1,30 @@
+h1 Listing curriculum subjects of #{@board.name}
+
+table
+  thead
+    tr
+      th Title
+      th Ancestry Level
+      th Description
+      th Board
+      th
+      th
+      th
+      th
+
+  tbody
+    - @subjects.each do |curriculum_subject|
+      tr
+        td = curriculum_subject.title
+        td = curriculum_subject.ancestry_level
+        td = curriculum_subject.description
+        td = curriculum_subject.board.name
+        td = link_to "#{curriculum_subject.send(curriculum_subject.children_ancestroy_level.pluralize).count} #{curriculum_subject.children_ancestroy_level.pluralize}",
+                     send("curriculum_#{curriculum_subject.ancestry_level}_#{curriculum_subject.children_ancestroy_level.pluralize}_path", curriculum_subject)
+        td = link_to 'Show', curriculum_subject_path(curriculum_subject)
+        td = link_to 'Edit', edit_curriculum_subject_path(curriculum_subject)
+        td = link_to 'Destroy', curriculum_subject_path(curriculum_subject), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'Add a subject', new_curriculum_board_subject_path(board_id: @board.id)

@@ -1,0 +1,9 @@
+h1 Editing curriculum_topic
+
+= simple_form_for(@subject) do |f|
+  == render 'form', f: f
+
+=> link_to 'Show', @subject
+'|
+=< link_to 'Back', curriculum_board_subjects_path(@subject.board)
+
