@@ -1,0 +1,30 @@
+h1 Listing curriculum chapters of #{@branch.title}
+
+table
+  thead
+    tr
+      th Title
+      th Ancestry Level
+      th Description
+      th Board
+      th
+      th
+      th
+      th
+
+  tbody
+    - @chapters.each do |chapter|
+      tr
+        td = chapter.title
+        td = chapter.ancestry_level
+        td = chapter.description
+        td = chapter.branch.title
+        td = link_to "#{chapter.send(chapter.children_ancestry_level.pluralize).count} #{chapter.children_ancestry_level.pluralize}",
+                     send("curriculum_#{chapter.ancestry_level}_#{chapter.children_ancestry_level.pluralize}_path", chapter)
+        td = link_to 'Show', curriculum_chapter_path(chapter)
+        td = link_to 'Edit', edit_curriculum_chapter_path(chapter)
+        td = link_to 'Destroy', curriculum_chapter_path(chapter), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'Add a chapter', new_curriculum_branch_chapter_path(branch_id: @branch.id)

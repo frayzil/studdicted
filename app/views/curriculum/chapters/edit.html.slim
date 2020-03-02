@@ -1,0 +1,9 @@
+h1 Editing Branch
+
+= simple_form_for(@chapter) do |f|
+  == render 'form', f: f
+
+=> link_to 'Show', @chapter
+'|
+=< link_to 'Back', curriculum_branch_chapters_path(@chapter.branch)
+

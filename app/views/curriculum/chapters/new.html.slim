@@ -1,0 +1,6 @@
+h1 New curriculum chapter for #{@branch.title}
+
+= simple_form_for([@branch, @chapter], url: :curriculum_branch_chapters) do |f|
+  == render 'form', f: f
+
+= link_to 'Back', curriculum_branch_chapters_path(@branch)
