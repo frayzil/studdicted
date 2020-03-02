@@ -1,5 +1,9 @@
 h1 Listing curriculum subjects of #{@board.name}
 
+= link_to 'Add a new subject', new_curriculum_board_subject_path(board_id: @board.id)
+br/
+br/
+
 .table-responsive
   table.table.table-striped
     thead
@@ -28,4 +32,4 @@ h1 Listing curriculum subjects of #{@board.name}
 
 br
 
-= link_to 'Add a subject', new_curriculum_board_subject_path(board_id: @board.id)
+= link_to 'Add a new subject', new_curriculum_board_subject_path(board_id: @board.id)

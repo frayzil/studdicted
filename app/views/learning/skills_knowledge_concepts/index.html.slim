@@ -1,6 +1,10 @@
 h3 Listing concepts related to
 h1 #{@skill.body}
 
+= link_to 'Add a concept', new_learning_skill_knowledge_concept_path
+br/
+br/
+
 == render 'index_table',
           skills_knowledge_concepts: @skills_knowledge_concepts,
           skill: @skill

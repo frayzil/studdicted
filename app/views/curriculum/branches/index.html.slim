@@ -1,5 +1,9 @@
 h1 Listing curriculum branches of #{@subject.title}
 
+= link_to 'Add a new branch', new_curriculum_subject_branch_path(subject_id: @subject.id)
+br/
+br/
+
 .table-responsive
   table.table.table-striped
     thead
@@ -28,4 +32,4 @@ h1 Listing curriculum branches of #{@subject.title}
 
 br
 
-= link_to 'Add a branch', new_curriculum_subject_branch_path(subject_id: @subject.id)
+= link_to 'Add a new branch', new_curriculum_subject_branch_path(subject_id: @subject.id)

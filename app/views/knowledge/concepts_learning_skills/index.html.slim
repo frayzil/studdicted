@@ -1,5 +1,9 @@
 h1 Listing skills related to #{@concept.title}
 
+= link_to 'Add a skill', new_knowledge_concept_skill_path
+br
+br
+
 == render 'index_table',
           concepts_learning_skills: @concepts_learning_skills,
           concept: @concept

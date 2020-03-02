@@ -1,5 +1,9 @@
 h1 Listing curriculum sections of #{@chapter.title}
 
+= link_to 'Add a new section', new_curriculum_chapter_section_path(chapter_id: @chapter.id)
+br/
+br/
+
 .table-responsive
   table.table.table-striped
     thead
@@ -28,4 +32,4 @@ h1 Listing curriculum sections of #{@chapter.title}
 
 br
 
-= link_to 'Add a section', new_curriculum_chapter_section_path(chapter_id: @chapter.id)
+= link_to 'Add a new section', new_curriculum_chapter_section_path(chapter_id: @chapter.id)

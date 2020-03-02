@@ -1,5 +1,9 @@
 h1 Listing curriculum chapters of #{@branch.title}
 
+= link_to 'Add a new chapter', new_curriculum_branch_chapter_path(branch_id: @branch.id)
+br/
+br/
+
 .table-responsive
   table.table.table-striped
     thead
@@ -28,4 +32,4 @@ h1 Listing curriculum chapters of #{@branch.title}
 
 br
 
-= link_to 'Add a chapter', new_curriculum_branch_chapter_path(branch_id: @branch.id)
+= link_to 'Add a new chapter', new_curriculum_branch_chapter_path(branch_id: @branch.id)
