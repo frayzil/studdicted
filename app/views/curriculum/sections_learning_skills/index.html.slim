@@ -1,0 +1,9 @@
+h3 Listing concepts related to
+h1 #{@section.title}
+
+== render 'index_table',
+          sections_learning_skills: @sections_learning_skills,
+          section: @section
+br
+
+= link_to 'Add a skill', new_curriculum_section_learning_skill_path

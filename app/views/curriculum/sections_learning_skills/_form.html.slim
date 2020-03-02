@@ -1,0 +1,12 @@
+= simple_form_for([@section, @sections_learning_skill], url: :curriculum_section_learning_skills) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :learning_skill_body, autofocus: true, input_html: { list: :learning_skill_bodies, autocomplete: 'off' }
+
+  datalist#learning_skill_bodies
+    = options_for_select((Learning::Skill.all - @section.learning_skills).pluck(:body))
+
+  .form-actions
+    = f.button :submit

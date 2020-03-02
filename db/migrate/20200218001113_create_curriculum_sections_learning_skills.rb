@@ -10,5 +10,10 @@ class CreateCurriculumSectionsLearningSkills < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    add_index :curriculum_sections_learning_skills,
+              [:section_id, :learning_skill_id],
+              unique: true,
+              name: :index_c_sections_l_skills_on_section_id_and_l_skill_id
   end
 end

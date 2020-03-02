@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       resources :subjects do
         resources :branches do
           resources :chapters do
-            resources :sections
+            resources :sections do
+              resources :learning_skills, controller: :sections_learning_skills
+            end
+
+            resources :sections_learning_skills, only: :destroy
           end
         end
       end
