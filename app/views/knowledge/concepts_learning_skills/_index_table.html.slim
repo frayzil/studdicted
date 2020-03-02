@@ -1,20 +1,21 @@
-table
-  thead
-    tr
-      th Body
-      th Description
-      th
-      th
-      th
-
-  tbody
-    - concepts_learning_skills.each do |concepts_learning_skill|
+.table-responsive
+  table.table.table-striped
+    thead
       tr
-        td = concepts_learning_skill.skill.body
-        td = concepts_learning_skill.skill.description
-        td = link_to 'Show', concepts_learning_skill.skill
-        td = link_to 'Edit', edit_learning_skill_path(concepts_learning_skill.skill)
-        td = link_to "Remove from #{concept.title}",
-                     concepts_learning_skill,
-                     data: { confirm: 'Are you sure?' },
-                     method: :delete
+        th Body
+        th Description
+        th
+        th
+        th
+
+    tbody
+      - concepts_learning_skills.each do |concepts_learning_skill|
+        tr
+          td = concepts_learning_skill.skill.body
+          td = concepts_learning_skill.skill.description
+          td = link_to 'Show', concepts_learning_skill.skill
+          td = link_to 'Edit', edit_learning_skill_path(concepts_learning_skill.skill)
+          td = link_to "Remove from #{concept.title}",
+                       concepts_learning_skill,
+                       data: { confirm: 'Are you sure?' },
+                       method: :delete

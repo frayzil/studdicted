@@ -1,25 +1,26 @@
 h1 Listing learning_skills
 
-table
-  thead
-    tr
-      th Body
-      th Description
-      th
-      th
-      th
-      th
-
-  tbody
-    - @learning_skills.each do |learning_skill|
+.table-responsive
+  table.table.table-striped
+    thead
       tr
-        td = learning_skill.body
-        td = learning_skill.description
-        td = link_to "#{learning_skill.skills_knowledge_concepts.count} knowledge concepts",
-                     learning_skill_knowledge_concepts_path(learning_skill)
-        td = link_to 'Show', learning_skill
-        td = link_to 'Edit', edit_learning_skill_path(learning_skill)
-        td = link_to 'Destroy', learning_skill, data: { confirm: 'Are you sure?' }, method: :delete
+        th Body
+        th Description
+        th
+        th
+        th
+        th
+
+    tbody
+      - @learning_skills.each do |learning_skill|
+        tr
+          td = learning_skill.body
+          td = learning_skill.description
+          td = link_to "#{learning_skill.skills_knowledge_concepts.count} knowledge concepts",
+                       learning_skill_knowledge_concepts_path(learning_skill)
+          td = link_to 'Show', learning_skill
+          td = link_to 'Edit', edit_learning_skill_path(learning_skill)
+          td = link_to 'Destroy', learning_skill, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 

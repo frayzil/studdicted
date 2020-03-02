@@ -1,29 +1,30 @@
 h1 Listing curriculum sections of #{@chapter.title}
 
-table
-  thead
-    tr
-      th Title
-      th Ancestry Level
-      th Description
-      th Board
-      th
-      th
-      th
-      th
-
-  tbody
-    - @sections.each do |section|
+.table-responsive
+  table.table.table-striped
+    thead
       tr
-        td = section.title
-        td = section.ancestry_level
-        td = section.description
-        td = section.chapter.title
-        td = link_to "#{section.sections_learning_skills.count} learning skills",
-                     curriculum_section_learning_skills_path(section)
-        td = link_to 'Show', curriculum_section_path(section)
-        td = link_to 'Edit', edit_curriculum_section_path(section)
-        td = link_to 'Destroy', curriculum_section_path(section), data: { confirm: 'Are you sure?' }, method: :delete
+        th Title
+        th Ancestry Level
+        th Description
+        th Board
+        th
+        th
+        th
+        th
+
+    tbody
+      - @sections.each do |section|
+        tr
+          td = section.title
+          td = section.ancestry_level
+          td = section.description
+          td = section.chapter.title
+          td = link_to "#{section.sections_learning_skills.count} learning skills",
+                       curriculum_section_learning_skills_path(section)
+          td = link_to 'Show', curriculum_section_path(section)
+          td = link_to 'Edit', edit_curriculum_section_path(section)
+          td = link_to 'Destroy', curriculum_section_path(section), data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
