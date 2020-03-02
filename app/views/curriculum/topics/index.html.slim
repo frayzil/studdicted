@@ -15,7 +15,7 @@ table
     - @curriculum_topics.each do |curriculum_topic|
       tr
         td = curriculum_topic.title
-        td = curriculum_topic.type
+        td = curriculum_topic.ancestry_level
         td = curriculum_topic.description
         td = curriculum_topic.board
         td = link_to 'Show', curriculum_topic
