@@ -38,6 +38,6 @@ class Curriculum::SectionsLearningSkillsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def sections_learning_skill_params
-    params.require(:curriculum_sections_learning_skill).permit(:learning_skill_body)
+    params.require(:curriculum_sections_learning_skill).permit(:learning_skill_body, :grade)
   end
 end
