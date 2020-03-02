@@ -8,5 +8,4 @@
   datalist#knowledge_concept_titles
     = options_for_select((Knowledge::Concept.all - @skill.knowledge_concepts).pluck(:title))
 
-  .form-actions
-    = f.button :submit
+  == render 'forms/navigation', f: f, back_to: back_to

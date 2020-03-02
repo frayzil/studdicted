@@ -1,5 +1,3 @@
 h1 Add a skill to #{@concept.title}
 
-== render 'form'
-
-= link_to 'Back', knowledge_concept_skills_path(@concept)
+== render 'form', back_to: knowledge_concept_skills_path(@concept)

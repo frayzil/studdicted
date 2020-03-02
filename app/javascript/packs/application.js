@@ -17,3 +17,9 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+
+import "bootstrap"
+
+$("tr[data-link]").click(function() {
+  window.location = $(this).data("link")
+})

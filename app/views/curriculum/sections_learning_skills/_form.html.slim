@@ -8,5 +8,5 @@
   datalist#learning_skill_bodies
     = options_for_select((Learning::Skill.all - @section.learning_skills).pluck(:body))
 
-  .form-actions
-    = f.button :submit
+  == render 'forms/navigation', f: f, back_to: back_to
+

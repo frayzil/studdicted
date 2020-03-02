@@ -1,6 +1,4 @@
 h1 New curriculum section for #{@chapter.title}
 
 = simple_form_for([@chapter, @section], url: :curriculum_chapter_sections) do |f|
-  == render 'form', f: f
-
-= link_to 'Back', curriculum_chapter_sections_path(@chapter)
+  == render 'form', f: f, back_to: curriculum_chapter_sections_path(@chapter)
