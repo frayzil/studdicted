@@ -1,10 +1,18 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   root to: 'knowledge/concepts#index'
 
-  namespace :curriculum do
-    resources :topics
-    resources :boards
+  namespace :curriculum, shallow: true do
+    resources :boards do
+      resources :subjects do
+        resources :branches do
+          resources :chapters do
+            resources :sections
+          end
+        end
+      end
+    end
   end
 
   namespace :learning, shallow: true do

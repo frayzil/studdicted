@@ -55,7 +55,7 @@ curriculum_boards_data = [
 
 cbse, icse, igcse = Curriculum::Board.create!(curriculum_boards_data)
 
-science, english, maths = Curriculum::Topics::Subject.create!([
+science, english, maths = Curriculum::Subject.create!([
   { title: 'Science' },
   { title: 'English' },
   { title: 'Mathematics' }

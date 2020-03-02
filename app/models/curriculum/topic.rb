@@ -6,7 +6,7 @@ class Curriculum::Topic < ApplicationRecord
   self.inheritance_column = :ancestry_level
   
   def self.find_sti_class(type_name)
-    super "Curriculum::Topics::#{type_name.classify}"
+    super "Curriculum::#{type_name.classify}"
   end
 
   def self.sti_name
