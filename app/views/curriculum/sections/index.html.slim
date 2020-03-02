@@ -1,0 +1,27 @@
+h1 Listing curriculum sections of #{@chapter.title}
+
+table
+  thead
+    tr
+      th Title
+      th Ancestry Level
+      th Description
+      th Board
+      th
+      th
+      th
+
+  tbody
+    - @sections.each do |section|
+      tr
+        td = section.title
+        td = section.ancestry_level
+        td = section.description
+        td = section.chapter.title
+        td = link_to 'Show', curriculum_section_path(section)
+        td = link_to 'Edit', edit_curriculum_section_path(section)
+        td = link_to 'Destroy', curriculum_section_path(section), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'Add a section', new_curriculum_chapter_section_path(chapter_id: @chapter.id)
