@@ -1,0 +1,33 @@
+h2 Curriculum, Learning, and Knowledge data
+
+b Guidelines
+ol
+  li The format of the file should be csv
+  li The structure of the csv should be as follows:
+
+.table-responsive
+  table.table.table-striped
+    thead
+      tr
+        th Board
+        th Subject
+        th Branch
+        th Chapter
+        th Section
+        th Skill
+        th Grade
+        th Concept(s)
+    tbody
+      tr
+        td CBSE
+        td Physics
+        td Optics
+        td Reflection on Curved Surfaces
+        td Concave Surfaces
+        td Identify a concave mirror
+        td 10
+        td mirror, curve, concave      
+
+= simple_form_for @uploader, as: :uploader, method: :post, url: data_uploads_path do |f|
+  = f.file_field :file, required: true
+  = f.submit 'Upload'
