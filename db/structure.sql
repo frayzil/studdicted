@@ -415,6 +415,13 @@ CREATE INDEX index_c_sections_l_skills_on_l_skill_id ON public.curriculum_sectio
 
 
 --
+-- Name: index_c_sections_l_skills_on_section_id_and_l_skill_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_c_sections_l_skills_on_section_id_and_l_skill_id ON public.curriculum_sections_learning_skills USING btree (section_id, learning_skill_id);
+
+
+--
 -- Name: index_curriculum_board_subjects_on_board_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -426,6 +433,13 @@ CREATE INDEX index_curriculum_board_subjects_on_board_id ON public.curriculum_bo
 --
 
 CREATE INDEX index_curriculum_board_subjects_on_subject_id ON public.curriculum_board_subjects USING btree (subject_id);
+
+
+--
+-- Name: index_curriculum_boards_on_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_curriculum_boards_on_name ON public.curriculum_boards USING btree (name);
 
 
 --
