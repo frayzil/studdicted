@@ -42,8 +42,29 @@ class DataUploadService
   private
 
   def write(data)
-    board = Curriculum::Board.create_or_find_by(name: data['Board'])
+    board = Curriculum::Board.create_or_find_by!(name: data['Board'])
 
-    'too many errrors'
+    subject = board.subjects.find_or_create_by!(title: data['Subject'])
+
+    branch = subject.branches.find_or_create_by!(title: data['Branch'])
+
+    chapter = branch.chapters.find_or_create_by!(title: data['Chapter'])
+
+    section = chapter.sections.find_or_create_by!(title: data['Section'])
+
+    skill = Learning::Skill.create_or_find_by!(body: data['Skill'])
+
+    section.learning_skills << skill
+
+    concept_titles = data['Concept(s)'].split(',').collect(&:strip)
+
+    concept_titles.each do |title|
+      concept = Knowledge::Concept.create_or_find_by!(title: title)
+      skill.knowledge_concepts << concept
+    end
+
+    ''
+  rescue Exception => e
+    e
   end
 end
