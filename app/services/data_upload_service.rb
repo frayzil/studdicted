@@ -54,7 +54,7 @@ class DataUploadService
 
     skill = Learning::Skill.create_or_find_by!(body: data['Skill'])
 
-    section.learning_skills << skill
+    section.sections_learning_skills.create(learning_skill: skill, grade: data['Grade'])
 
     concept_titles = data['Concept(s)'].split(',').collect(&:strip)
 

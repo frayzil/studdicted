@@ -2,8 +2,8 @@
   table.table.table-striped
     thead
       tr
-        th Title
-        th Description
+        th Skill body
+        th Grade
         th
         th
         th
@@ -12,7 +12,7 @@
       - sections_learning_skills.each do |sections_learning_skill|
         tr
           td = sections_learning_skill.learning_skill.body
-          td = sections_learning_skill.learning_skill.description
+          td = sections_learning_skill.grade
           td = link_to 'Show', sections_learning_skill.learning_skill
           td = link_to 'Edit', edit_learning_skill_path(sections_learning_skill.learning_skill)
           td = link_to "Remove from #{sections_learning_skill.section.title}",
