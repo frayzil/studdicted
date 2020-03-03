@@ -15,7 +15,7 @@
           td = sections_learning_skill.learning_skill.description
           td = link_to 'Show', sections_learning_skill.learning_skill
           td = link_to 'Edit', edit_learning_skill_path(sections_learning_skill.learning_skill)
-          td = link_to "Remove from #{sections_learning_skill.learning_skill.body}",
+          td = link_to "Remove from #{sections_learning_skill.section.title}",
                        sections_learning_skill,
                        data: { confirm: 'Are you sure?' },
                        method: :delete
