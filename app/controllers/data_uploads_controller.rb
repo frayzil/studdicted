@@ -1,5 +1,3 @@
-require 'csv'
-
 class DataUploadsController < ApplicationController
   def new
     @uploader = DataUploadService.new
